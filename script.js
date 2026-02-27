@@ -1,3 +1,5 @@
+console.log("Сайт работает нормально!");
+
 const modal = document.getElementById('myModal');
 const btnOpen = document.getElementById('openModal');
 const closeBtn = document.getElementById('closeModal');
