@@ -1,50 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" id="html-theme">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WinSoft</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinSoft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <header>
+        <h1>WinSoft</h1>
+        <div class="theme-switcher">
+            <button id="light-theme" class="theme-btn active" data-theme="light">
+                <i class="fas fa-sun"></i> Светлый
+            </button>
+            <button id="dark-theme" class="theme-btn" data-theme="dark">
+                <i class="fas fa-moon"></i> Тёмный
+            </button>
+        </div>
+    </header>
 
-  <h1>WinSoft</h1>
+    <main>
+        <section class="block about-block">
+            <h2>О нас</h2>
+            <a href="info.html" class="btn">О нас</a>
+        </section>
 
-  <div class="container">
-    <div class="card">
-      <h2>О нас</h2>
-      <button class="btn" id="openModal">Открыть</button>
-    </div>
+        <section class="block download-block">
+            <h2>Скачайте наше приложение</h2>
+            <a href="download.html" class="btn">Скачать</a>
+        </section>
+    </main>
 
-    <div class="card">
-      <h2>Скачать программу</h2>
-      <a href="download.html" class="btn btn-download">Скачать</a>
-    </div>
-  </div>
-
-  <div class="modal" id="myModal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Мы создаём удобную программу!</h2>
-      <p>Мы собираемся объединить несколько программ в одну удобную.</p>
-      <p style="margin-top: 20px;">Поможет, например, для настройки Windows</p>
-    </div>
-  </div>
-
-  <footer>
-    <a href="https://github.com/WinSoft-Ltd/winsoft" target="_blank" rel="noopener noreferrer">
-      <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.svg"
-           alt="Наш GitHub" class="social-icon github-icon">
-    </a>
-    <a href="https://t.me/winsoftltd" target="_blank" rel="noopener noreferrer">
-      <img src="https://simpleicons.org/icons/telegram.svg"
-           alt="Наш Telegram" class="social-icon">
-    </a>
-  </footer>
-
-  <p class="copyright">© 2026 WinSoft Ltd</p>
-  <p class="copyright">Внимание! Возможен перенос домена в любое время!</p>
-  
-  <script src="script.js"></script>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/winsoft-ltd/WinSoft" target="_blank" class="social-btn github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://t.me/winsoftltd" target="_blank" class="social-btn telegram">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
+        </div>
+        <div class="avatar">
+            <img src="https://winsoft-ltd.github.io/winsoft/icon.png" alt="WinSoft">
+        </div>
+    </footer>
+    <p>© 2026 WinSoft-Ltd</p>
+    <script src="script.js"></script>
 </body>
 </html>
