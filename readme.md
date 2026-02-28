@@ -10,6 +10,12 @@
 
 * Оставьте их в [issues](https://github.com/winsoft-ltd/winsoft/issues)
 
+## Скачивание
+
+> [!WARNING]
+>
+> Скачивайте программу с сайта!
+
 ## Поддержка проекта
 
 Вы можете поддержать проект, поставив :star: этому репозиторию (сверху справа [главной страницы](https://github.com/winsoft-ltd/winsoft/blob/main))
