@@ -1,19 +1,66 @@
-console.log("Сайт работает нормально!");
+console.log("Copyright (c) 2026 WinSoft-Ltd");
 
-const modal = document.getElementById('myModal');
-const btnOpen = document.getElementById('openModal');
-const closeBtn = document.getElementById('closeModal');
+document.addEventListener('DOMContentLoaded', function() {
+    const lightThemeBtn = document.getElementById('light-theme');
+    const darkThemeBtn = document.getElementById('dark-theme');
+    const htmlElement = document.getElementById('html-theme');
 
-btnOpen.addEventListener('click', () => {
-  modal.classList.add('show');
-});
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('show');
-});
+    lightThemeBtn.addEventListener('click', () => {
+        setTheme('light');
+    });
 
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('show');
-  }
+    darkThemeBtn.addEventListener('click', () => {
+        setTheme('dark');
+    });
+
+    function setTheme(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+
+        localStorage.setItem('theme', theme);
+
+        updateActiveButtons(theme);
+    }
+
+    function updateActiveButtons(activeTheme) {
+        [lightThemeBtn, darkThemeBtn].forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        if (activeTheme === 'light') {
+            lightThemeBtn.classList.add('active');
+        } else {
+            darkThemeBtn.classList.add('active');
+        }
+    }
+
+    const blocks = document.querySelectorAll('.block');
+    blocks.forEach((block, index) => {
+        block.style.opacity = '0';
+        block.style.transform = 'translateY(20px)';
+
+        setTimeout(() => {
+            block.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            block.style.opacity = '1';
+            block.style.transform = 'translateY(0)';
+        }, 300 + index * 200);
+    });
+  
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        });
+    });
 });
