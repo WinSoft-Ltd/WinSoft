@@ -1,53 +1,28 @@
 console.log("Copyright (c) 2026 WinSoft-Ltd");
 
 document.addEventListener('DOMContentLoaded', function() {
-    const lightThemeBtn = document.getElementById('light-theme');
-    const darkThemeBtn = document.getElementById('dark-theme');
-    const htmlElement = document.getElementById('html-theme');
-
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-
-    lightThemeBtn.addEventListener('click', () => {
-        setTheme('light');
-    });
-
-    darkThemeBtn.addEventListener('click', () => {
-        setTheme('dark');
-    });
-
-    function setTheme(theme) {
-        htmlElement.setAttribute('data-theme', theme);
-
-        localStorage.setItem('theme', theme);
-
-        updateActiveButtons(theme);
-    }
-
-    function updateActiveButtons(activeTheme) {
-        [lightThemeBtn, darkThemeBtn].forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        if (activeTheme === 'light') {
-            lightThemeBtn.classList.add('active');
-        } else {
-            darkThemeBtn.classList.add('active');
-        }
-    }
-
     const blocks = document.querySelectorAll('.block');
     blocks.forEach((block, index) => {
         block.style.opacity = '0';
-        block.style.transform = 'translateY(20px)';
+        block.style.transform = 'translateY(30px) rotateX(-10deg)';
 
         setTimeout(() => {
-            block.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            block.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)';
             block.style.opacity = '1';
-            block.style.transform = 'translateY(0)';
-        }, 300 + index * 200);
+            block.style.transform = 'translateY(0) rotateX(0)';
+        }, 200 + index * 150);
     });
-  
+
+    document.addEventListener('mousemove', (e) => {
+        const blocks = document.querySelectorAll('.block');
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+
+        blocks.forEach(block => {
+            block.style.transform = `translateY(${yAxis}px) rotateX(${yAxis * 0.5}deg) translateX(${xAxis}px)`;
+        });
+    });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
