@@ -1,0 +1,75 @@
+.version-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.version-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--shadow-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.version-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.version-header h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.release-date {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.version-notes {
+    color: #b0b0b0;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.version-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1.2rem;
+}
+
+.download-btn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .version-card {
+        padding: 1.2rem;
+    }
+    
+    .version-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .version-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
